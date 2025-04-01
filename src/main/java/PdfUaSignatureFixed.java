@@ -17,7 +17,7 @@ import java.io.File;
 public class PdfUaSignatureFixed {
 
     public static void main(String[] args) throws Exception {
-        String dest = "pdfua_signature_fixed.pdf";
+        String dest = "pdfua_signature_fixed2.pdf";
 
         // Setup writer with UA metadata
         PdfWriter writer = new PdfWriter(dest, new WriterProperties().addUAXmpMetadata());
@@ -45,7 +45,7 @@ public class PdfUaSignatureFixed {
         // Create the widget and annotation
         PdfWidgetAnnotation widget = new PdfWidgetAnnotation(rect);
         PdfPage page = pdfDoc.getFirstPage();
-        page.addAnnotation(widget);
+//        page.addAnnotation(widget); this breaks PAC....
         sigField.addKid(widget);
         form.addField(sigField, page);
 
